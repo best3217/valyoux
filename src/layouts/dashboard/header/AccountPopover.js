@@ -15,6 +15,8 @@ import useIsMountedRef from '../../../hooks/useIsMountedRef';
 import MyAvatar from '../../../components/MyAvatar';
 import MenuPopover from '../../../components/MenuPopover';
 import { IconButtonAnimate } from '../../../components/animate';
+import { useSelector, useDispatch } from 'react-redux'
+import { resetRoleData } from '../../../redux/slices/role';
 
 // ----------------------------------------------------------------------
 
@@ -25,11 +27,11 @@ const MENU_OPTIONS = [
   },
   {
     label: 'Profile',
-    linkTo: PATH_DASHBOARD.user.profile,
+    linkTo: 'PATH_DASHBOARD.user.profile',
   },
   {
     label: 'Settings',
-    linkTo: PATH_DASHBOARD.user.account,
+    linkTo: 'PATH_DASHBOARD.user.account',
   },
 ];
 
@@ -46,6 +48,8 @@ export default function AccountPopover() {
 
   const [open, setOpen] = useState(null);
 
+  const dispatch = useDispatch()
+
   const handleOpen = (event) => {
     setOpen(event.currentTarget);
   };
@@ -57,6 +61,8 @@ export default function AccountPopover() {
   const handleLogout = async () => {
     try {
       await logout();
+      dispatch(resetRoleData())
+      localStorage.removeItem('role');
       router.replace(PATH_AUTH.login);
 
       if (isMountedRef.current) {

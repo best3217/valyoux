@@ -214,7 +214,7 @@ export function getProducts() {
   return async () => {
     dispatch(slice.actions.startLoading());
     try {
-      const response = await axios.get('/api/products');
+      const response = await axios.get('https://minimal-assets-api.vercel.app/api/products');
       dispatch(slice.actions.getProductsSuccess(response.data.products));
     } catch (error) {
       dispatch(slice.actions.hasError(error));
@@ -228,7 +228,7 @@ export function getProduct(name) {
   return async () => {
     dispatch(slice.actions.startLoading());
     try {
-      const response = await axios.get('/api/products/product', {
+      const response = await axios.get('https://minimal-assets-api.vercel.app/api/products/product', {
         params: { name },
       });
       dispatch(slice.actions.getProductSuccess(response.data.product));

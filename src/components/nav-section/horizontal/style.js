@@ -1,20 +1,19 @@
 // @mui
 import { alpha, styled } from '@mui/material/styles';
-import { Button, Popover } from '@mui/material';
+import { Link, Popover } from '@mui/material';
 // config
 import { NAVBAR } from '../../../config';
 
 // ----------------------------------------------------------------------
 
-export const ListItemStyle = styled(Button, {
+export const ListItemStyle = styled(Link, {
   shouldForwardProp: (prop) => prop !== 'activeRoot' && prop !== 'activeSub' && prop !== 'subItem' && prop !== 'open',
 })(({ activeRoot, activeSub, subItem, open, theme }) => {
   const isLight = theme.palette.mode === 'light';
 
   const activeRootStyle = {
-    color: theme.palette.grey[800],
+    color: theme.primary,
     backgroundColor: theme.palette.common.white,
-    boxShadow: `-2px 4px 6px 0 ${alpha(isLight ? theme.palette.grey[500] : theme.palette.common.black, 0.16)}`,
   };
 
   return {
@@ -23,6 +22,9 @@ export const ListItemStyle = styled(Button, {
     padding: theme.spacing(0, 1),
     color: theme.palette.text.secondary,
     height: NAVBAR.DASHBOARD_ITEM_HORIZONTAL_HEIGHT,
+    textUnderline: 'none',
+    cursor: 'pointer',
+    whiteSpace: 'nowrap',
     '&:hover': {
       color: theme.palette.text.primary,
       backgroundColor: theme.palette.background.paper,
@@ -50,7 +52,6 @@ export const ListItemStyle = styled(Button, {
     ...(open &&
       !activeRoot && {
         color: theme.palette.text.primary,
-        backgroundColor: theme.palette.action.hover,
       }),
   };
 });

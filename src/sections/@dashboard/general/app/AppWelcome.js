@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
 import { Typography, Button, Card, CardContent } from '@mui/material';
 import { SeoIllustration } from '../../../../assets';
+import {useSelector, useDispatch} from 'react-redux'
 
 // ----------------------------------------------------------------------
 
@@ -26,6 +27,9 @@ AppWelcome.propTypes = {
 };
 
 export default function AppWelcome({ displayName }) {
+  
+  const {currentRole} = useSelector(state => state.role)
+
   return (
     <RootStyle>
       <CardContent
@@ -36,12 +40,12 @@ export default function AppWelcome({ displayName }) {
         }}
       >
         <Typography gutterBottom variant="h4">
-          Welcome back,
+          Welcome to {currentRole.value}
           <br /> {!displayName ? '...' : displayName}!
         </Typography>
 
         <Typography variant="body2" sx={{ pb: { xs: 3, xl: 5 }, maxWidth: 480, mx: 'auto' }}>
-          {`If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything`}
+          This is {currentRole.value} page
         </Typography>
 
         <Button variant="contained">Go Now</Button>

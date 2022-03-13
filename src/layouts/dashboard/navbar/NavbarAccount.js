@@ -10,6 +10,7 @@ import useAuth from '../../../hooks/useAuth';
 import { PATH_DASHBOARD } from '../../../routes/paths';
 // components
 import MyAvatar from '../../../components/MyAvatar';
+import { useSelector } from 'react-redux';
 
 // ----------------------------------------------------------------------
 
@@ -32,9 +33,10 @@ NavbarAccount.propTypes = {
 
 export default function NavbarAccount({ isCollapse }) {
   const { user } = useAuth();
+  const { currentRole } = useSelector(state => state.role)
 
   return (
-    <NextLink href={PATH_DASHBOARD.user.account} passHref>
+    <NextLink href={'PATH_DASHBOARD.user.account'} passHref>
       <Link underline="none" color="inherit">
         <RootStyle
           sx={{
@@ -59,10 +61,10 @@ export default function NavbarAccount({ isCollapse }) {
             }}
           >
             <Typography variant="subtitle2" noWrap>
-              {user?.displayName}
+              {user?.firstName + ' ' + user?.lastName}
             </Typography>
-            <Typography variant="body2" noWrap sx={{ color: 'text.secondary' }}>
-              {user?.role}
+            <Typography variant="body2" noWrap sx={{ color: 'text.secondary', textTransform:'capitalize'}}>
+              {currentRole.value}
             </Typography>
           </Box>
         </RootStyle>

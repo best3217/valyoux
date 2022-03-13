@@ -4,6 +4,7 @@ import { styled } from '@mui/material/styles';
 import { List, Box, ListSubheader } from '@mui/material';
 //
 import { NavListRoot } from './NavList';
+import { useSelector, useDispatch } from 'react-redux'
 
 // ----------------------------------------------------------------------
 
@@ -28,9 +29,35 @@ NavSectionVertical.propTypes = {
 };
 
 export default function NavSectionVertical({ navConfig, isCollapse = false, ...other }) {
+
+  const { currentRole } = useSelector(state => state.role)
+
   return (
     <Box {...other}>
       {navConfig.map((group) => (
+        (group.subheader === "dashboard") ?
+          <List key={group.subheader} disablePadding sx={{ px: 2 }}>
+            <ListSubheaderStyle
+              sx={{
+                ...(isCollapse && {
+                  opacity: 0,
+                }),
+              }}
+            >
+              {currentRole.value + ' ' + group.subheader}
+            </ListSubheaderStyle>
+
+            {group.items.map((list) => (
+              (list.title === 'admin' && currentRole.value==='admin' ) ? 
+                list.children.map((childList) => <NavListRoot key={childList.title} list={childList} isCollapse={isCollapse} />)
+              :(
+                (list.title === currentRole.value) ?
+                  <NavListRoot key={list.title} list={list} isCollapse={isCollapse} />
+                : ''
+              )
+            ))}
+          </List>
+        :
         <List key={group.subheader} disablePadding sx={{ px: 2 }}>
           <ListSubheaderStyle
             sx={{

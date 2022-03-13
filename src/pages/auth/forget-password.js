@@ -12,7 +12,7 @@ import Layout from '../../layouts';
 // components
 import Page from '../../components/Page';
 // sections
-import { ResetPasswordForm } from '../../sections/auth/reset-password';
+import { ForgetPasswordForm } from '../../sections/auth/password';
 // assets
 import { SentIcon } from '../../assets';
 
@@ -44,7 +44,7 @@ export default function ResetPassword() {
   const [sent, setSent] = useState(false);
 
   return (
-    <Page title="Reset Password" sx={{ height: 1 }}>
+    <Page title="Forget Password" sx={{ height: 1 }}>
       <RootStyle>
         <Container>
           <Box sx={{ maxWidth: 480, mx: 'auto' }}>
@@ -57,9 +57,9 @@ export default function ResetPassword() {
                   style={{ width: '65%', margin: 'auto' }}
                   />
                   <Typography variant="h5" sx={{ px: 5, mt: 10, mb: 1, color: 'primary.main', textAlign: 'center' }}>
-                    Reset Password
+                    Forget Password
                   </Typography>
-                  <ResetPasswordForm onSent={() => setSent(true)} onGetEmail={(value) => setEmail(value)} />
+                  <ForgetPasswordForm onSent={() => setSent(true)} onGetEmail={(value) => setEmail(value)} />
                 </SectionStyle>
 
                 <Typography sx={{ mt: { md: 5 }, mb:1, textAlign: 'center', fontSize: 13 }}>

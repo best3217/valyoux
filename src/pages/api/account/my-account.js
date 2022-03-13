@@ -6,7 +6,7 @@ const handler = nextConnect();
 handler.use(middleware);
 
 handler.get((req, res) => {
-    const { uid } = req.body;
+    const { uid }  = req.query;
     return req.db
     .collection('users')
     .findOne({ _id: new ObjectId(uid) })

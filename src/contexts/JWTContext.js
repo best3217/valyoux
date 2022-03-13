@@ -45,9 +45,17 @@ const handlers = {
       user,
     };
   },
+  SETROLE: (state, action) => {
+    const { user } = action.payload;
+    return {
+      ...state,
+      user,
+    };
+  },
 };
 
 const reducer = (state, action) => (handlers[action.type] ? handlers[action.type](state, action) : state);
+
 
 const AuthContext = createContext({
   ...initialState,
@@ -55,6 +63,7 @@ const AuthContext = createContext({
   login: () => Promise.resolve(),
   logout: () => Promise.resolve(),
   register: () => Promise.resolve(),
+  setRole: () => Promise.resolve()
 });
 
 // ----------------------------------------------------------------------
@@ -81,6 +90,7 @@ function AuthProvider({ children }) {
               uid: uid
             }
           });
+          
           const { user } = response.data;
 
           dispatch({
@@ -100,7 +110,6 @@ function AuthProvider({ children }) {
           });
         }
       } catch (err) {
-        console.error(err);
         dispatch({
           type: 'INITIALIZE',
           payload: {
@@ -119,8 +128,6 @@ function AuthProvider({ children }) {
       email,
       password,
     });
-
-    console.log(response)
     if(response.data.status === 'error') {
       return response.data.message.substring(6)
     }else {
@@ -138,6 +145,15 @@ function AuthProvider({ children }) {
     }
   };
 
+  const setRole = async (user) => {
+    dispatch({
+      type: 'SETROLE',
+      payload: {
+        user,
+      }
+    });
+  };
+
   const register = async (email, password, firstName, lastName, phoneNumber, birthDay, country, avatar) => {
     const result = axios.post('/api/account/register', {
       email,
@@ -148,9 +164,7 @@ function AuthProvider({ children }) {
       birthDay,
       country,
       avatar
-    }).then(res => {
-      return res.data
-    }).catch(error => {
+    }).then(res => res.data).catch(error => {
       console.log(error)
       return error
     })
@@ -182,6 +196,7 @@ function AuthProvider({ children }) {
         login,
         logout,
         register,
+        setRole
       }}
     >
       {children}

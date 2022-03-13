@@ -1,17 +1,18 @@
 import * as Yup from 'yup'
-import { useState, forwardRef } from 'react'
+import { useRouter } from 'next/router'
+import { useState } from 'react'
 import NextLink from 'next/link'
 import { PATH_AUTH } from '../../../routes/paths'
 import { useFileUpload } from "use-file-upload";
+import { useSnackbar } from 'notistack';
 // form
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup/dist/yup'
 // @mui
-import { Box, Typography, Link, Stack, IconButton, InputAdornment, Alert, AlertTitle, Button, ButtonUnstyled } from '@mui/material'
+import { Box, Typography, Link, Stack, IconButton, InputAdornment, Alert, Button, ButtonUnstyled } from '@mui/material'
 import Autocomplete from '@mui/material/Autocomplete';
 import DatePicker from '@mui/lab/DatePicker';
 import { styled } from '@mui/material/styles';
-import Snackbar from '@mui/material/Snackbar';
 
 // hooks
 import useAuth from '../../../hooks/useAuth';
@@ -63,9 +64,13 @@ const UploadDefaultIcon = styled(Image)(() => ({
 export default function RegisterForm() {
   const { register } = useAuth();
 
+  const router = useRouter();
+
   const isMountedRef = useIsMountedRef();
 
   const [showPassword, setShowPassword] = useState(false);
+
+  const { enqueueSnackbar } = useSnackbar();
 
   const [date, setDate] = useState(new Date());
 
@@ -84,11 +89,11 @@ export default function RegisterForm() {
   });
 
   const defaultValues = {
-    email: '123@qwe.qwe',
-    password: '123',
-    firstName: '123',
-    lastName: '123',
-    phoneNumber: '123',
+    email: '',
+    password: '',
+    firstName: '',
+    lastName: '',
+    phoneNumber: '',
     birthDay: date.toISOString().slice(0, 10),
     country: '',
     terms:false
@@ -120,14 +125,15 @@ export default function RegisterForm() {
         }).then((res) => res.text()).then((data) => {
           console.log(JSON.parse(data))
           avatar = location.origin + '/uploads/'+JSON.parse(data).fileName
-          console.log(avatar)
         });
       }
       setTimeout(() => {
         register(data.email, data.password, data.firstName, data.lastName, data.phoneNumber, data.birthDay, data.country, avatar).then(res => {
           if(res.status !== 'error') {
-            setMessage(res.message)
-            setOpenAlert(true)
+            enqueueSnackbar('Rester Successfully!', { variant: 'success' });
+            setTimeout(() => {
+              router.push('/auth/login');
+            }, 1500);
           }else {
             console.log(res.message)
             setError('email', {type:'focus', message:res.message});
@@ -144,23 +150,8 @@ export default function RegisterForm() {
     }
   };
 
-  const [openAlert, setOpenAlert] = useState(false);
-  const [message, setMessage] = useState('')
-
   return (
     <>
-      <Snackbar
-       anchorOrigin={{ vertical:'top', horizontal:'right' }}
-        autoHideDuration={2000}
-        open={openAlert}
-        onClose={() => setOpenAlert(false)}
-      >
-         <Alert variant="filled" severity="success" sx={{ width: '100%', color: 'white' }}>
-          <AlertTitle>Success</AlertTitle>
-          {message}
-        </Alert>
-      </Snackbar>
-
       <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
         <Stack spacing={3}>
           {!!errors.afterSubmit && <Alert severity="error">{errors.afterSubmit.message}</Alert>}

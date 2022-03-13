@@ -13,12 +13,11 @@ import cssStyles from '../../../utils/cssStyles';
 // config
 import { NAVBAR } from '../../../config';
 // components
-import Logo from '../../../components/Logo';
 import Scrollbar from '../../../components/Scrollbar';
 import { NavSectionVertical } from '../../../components/nav-section';
+import Image from '../../../components/Image';
 //
-import navConfig from './NavConfig';
-import NavbarDocs from './NavbarDocs';
+import { navVerticalConfig }  from './NavConfig';
 import NavbarAccount from './NavbarAccount';
 import CollapseButton from './CollapseButton';
 
@@ -51,6 +50,7 @@ export default function NavbarVertical({ isOpenSidebar, onCloseSidebar }) {
     useCollapseDrawer();
 
   useEffect(() => {
+    console.log(isOpenSidebar)
     if (isOpenSidebar) {
       onCloseSidebar();
     }
@@ -75,7 +75,7 @@ export default function NavbarVertical({ isOpenSidebar, onCloseSidebar }) {
         }}
       >
         <Stack direction="row" alignItems="center" justifyContent="space-between">
-          <Logo />
+          <Image src={isCollapse ? "/logo/valyou_x_small.png" : "/logo/valyou_x_black_logo.svg"} sx={isCollapse?{width: '100%'}:{width: 150}} alt="logo" />
 
           {isDesktop && !isCollapse && (
             <CollapseButton onToggleCollapse={onToggleCollapse} collapseClick={collapseClick} />
@@ -85,11 +85,9 @@ export default function NavbarVertical({ isOpenSidebar, onCloseSidebar }) {
         <NavbarAccount isCollapse={isCollapse} />
       </Stack>
 
-      <NavSectionVertical navConfig={navConfig} isCollapse={isCollapse} />
+      <NavSectionVertical navConfig={navVerticalConfig} isCollapse={isCollapse} />
 
       <Box sx={{ flexGrow: 1 }} />
-
-      {!isCollapse && <NavbarDocs />}
     </Scrollbar>
   );
 

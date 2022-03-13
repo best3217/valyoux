@@ -28,6 +28,7 @@ import 'react-lazy-load-image-component/src/effects/black-and-white.css';
 // fullcalendar
 import '@fullcalendar/common/main.min.css';
 import '@fullcalendar/daygrid/main.min.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 import PropTypes from 'prop-types';
 import cookie from 'cookie';

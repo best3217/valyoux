@@ -1,0 +1,9 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 27" width="25" height="27">
+	<title>investor-svg</title>
+	<defs>
+		<image width="23" height="24" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAYCAYAAAARfGZ1AAAAAXNSR0IArs4c6QAAAoRJREFUSEu1lcGR2kAQRX8LcTbOgI3AZGC2GKq4GUdgiMBLBMYZkIHZCAw3qjSqFREYR7BsBMb3Qe36qhmVpGVhsctzVevN7+7fPYL/eOQcezQadY/H4wdVHQPoAej4+ExV9yKystauX2KchPf7/U4cx18A3AHYAlgB2AWIqnaiKBqral9VFcAsTVPG1M4z+HA47KnqA4CfAObW2uxcdsaYOUWo6vc0TafV2Bo8gFX1Pk1Tqn7V4X95ni8B/KheUMJ9KR5FZJ0kyeRV1EqQ/38PYGGtZTYo4cPhcKmqXWtt/1pwiDfG8N+HOI5vNpvNvoDTFc65RwC3l2p86WJjTCYie2ZfwI0xbMgkTVPa7Z9OUO+cexvg9O3umiZecNABwDjAD175M6/+TRosDYAswDkIRb3Z9Xa7/Q7A7yRJysG55pKTcI65iHz2oG3TOcYYZpZZaxdNhwBg9qvj8TiL47iIqypnnaCqUxGhcmZS2NJn8ynP8zs6gT9yLTDT0ECWVUQ4eF1VPYjIfQ0uIrcshTGGe6WE+zTfN0qzttaOA9xaK36QvrGZAL5W4ZysmbdmE65Uoqoc8eI453ZZlh2q8MbM1ODjsD5PKOfyW0ZRVMBbrdYTJ9ALKaaSyit94OLbVpWfg7PGtbKIyDRJkmVTub+wBl+p6q+w0ZrKKwoLcaq6EJEDG96EG2PeAOBDMgvKi9TYCJbmFLzaTN9gvABnv2bOuW61TlyT/LDgSyMiN8GKxhjalIrKwwZzOQXleZ53oyiiFbmnPvJlqj0Wg8GAFpp7n5dDxMXm30/ueTZy5ZxbVt3ib30CMAmb9ewD3Rz5MNbhMQgDFsdxjz1orour4NfsF8b+AfmKlmN5fEwiAAAAAElFTkSuQmCC"/>
+	</defs>
+	<style>
+	</style>
+	<use id="Group_2785" href="#img1" transform="matrix(1,0,0,1,1,2)"/>
+</svg>

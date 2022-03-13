@@ -16,6 +16,7 @@ import {
   ListItemAvatar,
   ListItemButton,
 } from '@mui/material';
+import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 // utils
 import { fToNow } from '../../../utils/formatTime';
 // _mock_
@@ -55,9 +56,7 @@ export default function NotificationsPopover() {
   return (
     <>
       <IconButtonAnimate color={open ? 'primary' : 'default'} onClick={handleOpen} sx={{ width: 40, height: 40 }}>
-        <Badge badgeContent={totalUnRead} color="error">
-          <Iconify icon="eva:bell-fill" width={20} height={20} />
-        </Badge>
+        <NotificationsNoneIcon />
       </IconButtonAnimate>
 
       <MenuPopover

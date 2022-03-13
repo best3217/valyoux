@@ -59,7 +59,7 @@ export default function UserMoreMenu({ onDelete, userName }) {
           Delete
         </MenuItem>
 
-        <NextLink href={`${PATH_DASHBOARD.user.root}/${paramCase(userName)}/edit`}>
+        <NextLink href={`${PATH_DASHBOARD.admin.userManage.root}/${paramCase(userName)}/edit`}>
           <MenuItem>
             <Iconify icon={'eva:edit-fill'} sx={{ mr: 2, width: 24, height: 24 }} />
             Edit

@@ -1353,7 +1353,7 @@
     "react-transition-group" "^4.4.2"
     "rifm" "^0.12.1"
 
-"@mui/material@^5.0.0", "@mui/material@^5.2.3", "@mui/material@^5.2.4":
+"@mui/material@^5.0.0", "@mui/material@^5.2.3", "@mui/material@^5.2.4", "@mui/material@>= 5.0.0":
   "integrity" "sha512-W/0ib0aB5gKQ9DmEnYeKbmmzKBpn0039qDuQHjBE6RL5P1L5iYPGFMy4Es+7oQxiC77SuJ3xSOPsTpOW8QGDqw=="
   "resolved" "https://registry.npmjs.org/@mui/material/-/material-5.2.4.tgz"
   "version" "5.2.4"
@@ -5316,6 +5316,20 @@
   "resolved" "https://registry.npmjs.org/ieee754/-/ieee754-1.1.13.tgz"
   "version" "1.1.13"
 
+"igniteui-react-charts@^16.15.0":
+  "integrity" "sha512-9fbINQB9U7/3IWIH+LilbTn5zFUhjTgrc/Bt+HSK9NDcxrEGlhFRu2O7OSz/zF0bTLjh/Iaa+1Ilx1uFd0WIFA=="
+  "resolved" "https://registry.npmjs.org/igniteui-react-charts/-/igniteui-react-charts-16.15.0.tgz"
+  "version" "16.15.0"
+  dependencies:
+    "tslib" "^2.3.1"
+
+"igniteui-react-core@16.15.0":
+  "integrity" "sha512-YA9K6TajE+OPwdncdYpv4YSfzbpxw71Mg+Vu95uIgNKhjY74009PdchLKDxXUQ8d++z4UUT37iahbUJwdSE/1g=="
+  "resolved" "https://registry.npmjs.org/igniteui-react-core/-/igniteui-react-core-16.15.0.tgz"
+  "version" "16.15.0"
+  dependencies:
+    "tslib" "^2.3.1"
+
 "ignore@^4.0.6":
   "integrity" "sha512-cyFDKrqc/YdcWFniJhzI42+AzS+gNwmUzOSFcRCQYwySuBBBy/KjuxWLZ/FHEH6Moq1NizMOBWyTcv8O4OZIMg=="
   "resolved" "https://registry.npmjs.org/ignore/-/ignore-4.0.6.tgz"
@@ -6293,6 +6307,11 @@
   "version" "1.1.1"
   dependencies:
     "escape-string-regexp" "^1.0.4"
+
+"material-ui-confirm@^3.0.3":
+  "integrity" "sha512-lS1hIGhY4ANsXQkyObfyMILdegwEVHe5UaRvt0Oul/47cfSVycVosZDFCUSbRyJbeQVeY9R2avw1pQTQmRit3A=="
+  "resolved" "https://registry.npmjs.org/material-ui-confirm/-/material-ui-confirm-3.0.3.tgz"
+  "version" "3.0.3"
 
 "material-ui-upload@^1.2.1":
   "integrity" "sha512-KrJMJw9Borjm2DjxTo5+agWLhnZJ1T2rvzQRw72ItkEaMg9icgizPY4CZFfqQbgu5Duwl8daW8Ddn2WW54zroA=="
@@ -7831,7 +7850,7 @@
     "copy-to-clipboard" "^3"
     "prop-types" "^15.5.8"
 
-"react-dom@^0.14.0 || ^15.0.0 || ^16 || ^17", "react-dom@^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0", "react-dom@^0.14.9 || ^15.3.0 || ^16.0.0-rc || ^16.0 || ^17.0", "react-dom@^15.x.x || ^16.x.x || ^17.x.x", "react-dom@^16 || ^17", "react-dom@^16.4.1", "react-dom@^16.7.0 || ^17", "react-dom@^16.8.0 || ^17.0.0", "react-dom@^16.8.5 || ^17.0.0", "react-dom@^17.0.2", "react-dom@^17.0.2 || ^18.0.0-0", "react-dom@>= 16.8.0", "react-dom@>=16.13", "react-dom@>=16.3", "react-dom@>=16.6.0", "react-dom@>=16.8 || ^17.0.0", "react-dom@16.x || 17.x":
+"react-dom@^0.14.0 || ^15.0.0 || ^16 || ^17", "react-dom@^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0", "react-dom@^0.14.9 || ^15.3.0 || ^16.0.0-rc || ^16.0 || ^17.0", "react-dom@^15.x.x || ^16.x.x || ^17.x.x", "react-dom@^16 || ^17", "react-dom@^16.4.1", "react-dom@^16.7.0 || ^17", "react-dom@^16.8.0 || ^17.0.0", "react-dom@^16.8.5 || ^17.0.0", "react-dom@^17.0.0", "react-dom@^17.0.2", "react-dom@^17.0.2 || ^18.0.0-0", "react-dom@>= 16.8.0", "react-dom@>=16", "react-dom@>=16.13", "react-dom@>=16.3", "react-dom@>=16.6.0", "react-dom@>=16.8 || ^17.0.0", "react-dom@16.x || 17.x":
   "integrity" "sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-17.0.2.tgz"
   "version" "17.0.2"
@@ -8026,6 +8045,18 @@
   "version" "2.0.1"
   dependencies:
     "fbjs" "^0.8.6"
+
+"react-toast@^1.0.3":
+  "integrity" "sha512-gL3+O5hlLaoBmd36oXWKrjFeUyLCMQ04AIh48LrnUvdeg2vhJQ0E803TgVemgJvYUXKlutMVn9+/QS2DDnk26Q=="
+  "resolved" "https://registry.npmjs.org/react-toast/-/react-toast-1.0.3.tgz"
+  "version" "1.0.3"
+
+"react-toastify@^8.2.0":
+  "integrity" "sha512-Pg2Ju7NngAamarFvLwqrFomJ57u/Ay6i6zfLurt/qPynWkAkOthu6vxfqYpJCyNhHRhR4hu7+bySSeWWJu6PAg=="
+  "resolved" "https://registry.npmjs.org/react-toastify/-/react-toastify-8.2.0.tgz"
+  "version" "8.2.0"
+  dependencies:
+    "clsx" "^1.1.1"
 
 "react-transition-group@^1.2.1":
   "integrity" "sha512-CWaL3laCmgAFdxdKbhhps+c0HRGF4c+hdM4H23+FI1QBNUyx/AMeIJGWorehPNSaKnQNOAxL7PQmqMu78CDj3Q=="
@@ -9397,10 +9428,10 @@
   "resolved" "https://registry.npmjs.org/tslib/-/tslib-1.14.1.tgz"
   "version" "1.14.1"
 
-"tslib@^2.0.1", "tslib@^2.0.3", "tslib@^2.1.0", "tslib@^2.2.0", "tslib@~2.3.0":
-  "integrity" "sha512-N82ooyxVNm6h1riLCoyS9e3fuJ3AMG2zIZs2Gd1ATcSFjSA23Q0fzjjZeh0jbJvWVDZ0cJT8yaNNaaXHzueNjg=="
-  "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.3.0.tgz"
-  "version" "2.3.0"
+"tslib@^2.0.1", "tslib@^2.0.3", "tslib@^2.1.0", "tslib@^2.2.0", "tslib@^2.3.1", "tslib@~2.3.0":
+  "integrity" "sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw=="
+  "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.3.1.tgz"
+  "version" "2.3.1"
 
 "tsutils@^3.21.0":
   "integrity" "sha512-mHKK3iUXL+3UF6xL5k0PEhKRUBKPBCv/+RkEOpjRWxxx27KKRBmmA60A9pgOUvMi8GKhRMPEmjBRPzs2W7O1OA=="

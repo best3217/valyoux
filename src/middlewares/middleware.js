@@ -4,6 +4,7 @@ import { MongoClient } from 'mongodb';
 const middleware = nextConnect();
 
 async function database(req, res, next) {
+  console.log(process.env.MONGODB_URI)
     const client = new MongoClient(process.env.MONGODB_URI, {
         useNewUrlParser: true,
         useUnifiedTopology: true,

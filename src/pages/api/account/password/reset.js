@@ -43,7 +43,7 @@ handler.post( async (req, res) => {
                     html: `
                         <div>
                             <p>Hello, ${user.name}</p>
-                            <p>Please follow <a href="${process.env.WEB_URI}/forget-password/${securedTokenId}">this link</a> to reset your password.</p>
+                            <p>Please follow <a href="${process.env.WEB_URI}/reset-password?token=${securedTokenId}">this link</a> to reset your password.</p>
                         </div>
                     `,
                 }
@@ -80,7 +80,7 @@ handler.put( async(req, res) => {
         .collection("tokens")
         .findOneAndDelete({ _id: token });
     if(!deletedToken.value) {
-        return Promise.reject(Error('error'));
+        return Promise.reject(Error('Invalid token!'));
     }else {
         return req.db
           .collection("users")
@@ -88,7 +88,7 @@ handler.put( async(req, res) => {
           .then(() => {
             res.status(200).send({
                 status: 'ok',
-                message: 'password changed successfully',
+                message: 'Reset Password successfully',
             });
           })
     }

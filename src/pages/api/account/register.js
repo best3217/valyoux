@@ -25,6 +25,7 @@ handler.post((req, res) => {
         birthDay,
         country,
         avatar,
+        role: ['investor']
       }))
       .then(() => {
         res.status(200).send({

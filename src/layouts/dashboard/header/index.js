@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 // @mui
 import { styled } from '@mui/material/styles';
-import { Box, Stack, AppBar, Toolbar } from '@mui/material';
+import { Box, Stack, AppBar, Toolbar, Badge } from '@mui/material';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 // hooks
 import useOffSetTop from '../../../hooks/useOffSetTop';
 import useResponsive from '../../../hooks/useResponsive';
@@ -14,11 +15,11 @@ import Logo from '../../../components/Logo';
 import Iconify from '../../../components/Iconify';
 import { IconButtonAnimate } from '../../../components/animate';
 //
-import Searchbar from './Searchbar';
 import AccountPopover from './AccountPopover';
-import LanguagePopover from './LanguagePopover';
-import ContactsPopover from './ContactsPopover';
+import RolePopover from './RolePopover';
+import WalletPopover from './WalletPopover';
 import NotificationsPopover from './NotificationsPopover';
+import NavbarHorizontal from '../navbar/NavbarHorizontal';
 
 // ----------------------------------------------------------------------
 
@@ -27,6 +28,8 @@ const RootStyle = styled(AppBar, {
 })(({ isCollapse, isOffset, verticalLayout, theme }) => ({
   ...cssStyles(theme).bgBlur(),
   boxShadow: 'none',
+  flexDirection: 'row',
+  justifyContent: 'space-between',
   height: HEADER.MOBILE_HEIGHT,
   zIndex: theme.zIndex.appBar + 1,
   transition: theme.transitions.create(['width', 'height'], {
@@ -64,29 +67,36 @@ export default function DashboardHeader({ onOpenSidebar, isCollapse = false, ver
 
   return (
     <RootStyle isCollapse={isCollapse} isOffset={isOffset} verticalLayout={verticalLayout}>
+      <NavbarHorizontal />
       <Toolbar
         sx={{
           minHeight: '100% !important',
           px: { lg: 5 },
         }}
       >
-        {isDesktop && verticalLayout && <Logo sx={{ mr: 2.5 }} />}
+          {/* <LanguagePopover /> */}
+            <Stack direction="row" alignItems="center" sx={{ gap:1.5 }}> 
+            
+              <WalletPopover />
 
-        {!isDesktop && (
-          <IconButtonAnimate onClick={onOpenSidebar} sx={{ mr: 1, color: 'text.primary' }}>
-            <Iconify icon="eva:menu-2-fill" />
-          </IconButtonAnimate>
-        )}
+              <IconButtonAnimate>
+                <Badge badgeContent={3} color="error">
+                  <EmailOutlinedIcon />
+                </Badge>
+              </IconButtonAnimate>
 
-        <Searchbar />
-        <Box sx={{ flexGrow: 1 }} />
+              <NotificationsPopover />
 
-        <Stack direction="row" alignItems="center" spacing={{ xs: 0.5, sm: 1.5 }}>
-          <LanguagePopover />
-          <NotificationsPopover />
-          <ContactsPopover />
-          <AccountPopover />
-        </Stack>
+              <RolePopover />
+
+              <AccountPopover />
+
+            </Stack>
+            {!isDesktop && (
+              <IconButtonAnimate onClick={onOpenSidebar} sx={{ mx: 1, color: 'text.primary' }}>
+                <Iconify icon="eva:menu-2-fill" />
+              </IconButtonAnimate>
+            )}
       </Toolbar>
     </RootStyle>
   );
